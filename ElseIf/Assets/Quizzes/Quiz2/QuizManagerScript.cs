@@ -21,12 +21,15 @@ public class QuizManagerScript : MonoBehaviour {
     [SerializeField]
     private Text trueAnswerText;
 
-
     [SerializeField]
     private float timeBetweenQuestions = 1f;
 
     [SerializeField]
     private Animator animator;
+
+    private int countCorrect;
+
+    public GameObject menuQuizThisClass;
 
     // Use this for initialization
     void Start () {
@@ -36,7 +39,7 @@ public class QuizManagerScript : MonoBehaviour {
         }
         SetCurrentQuestion();
         Debug.Log(currentQuestion.fact + " is "+ currentQuestion.isTrue);
-	}
+    }
 
     void SetCurrentQuestion()
     {
@@ -63,7 +66,14 @@ public class QuizManagerScript : MonoBehaviour {
         yield return new WaitForSeconds(timeBetweenQuestions);
 
         //Change to go to next index in the array!!!!!
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (unansweredQuestions == null || unansweredQuestions.Count == 0)
+        {
+            Debug.Log("Empty Array");
+            //unansweredQuestions = questions.ToList<Question>();
+        }
+        
+        SetCurrentQuestion();
     }
 
     public void UserSelectsTrue()

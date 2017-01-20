@@ -2419,6 +2419,7 @@ MonoBehaviour:
   trueAnswerText: {fileID: 1645220344}
   timeBetweenQuestions: 1
   animator: {fileID: 1283794486}
+  menuQuizThisClass: {fileID: 1283794481}
 --- !u!4 &1555004414
 Transform:
   m_ObjectHideFlags: 0
