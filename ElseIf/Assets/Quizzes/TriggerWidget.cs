@@ -17,7 +17,7 @@ public class TriggerWidget : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        menuQuiz2.SetActive(true);
+        menuQuiz2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -53,5 +53,10 @@ public class TriggerWidget : MonoBehaviour {
         {
             menuQuiz2.SetActive(false);
         }
+    }
+
+    public void cancelWidget()
+    {
+        menuQuiz2.SetActive(false);
     }
 }

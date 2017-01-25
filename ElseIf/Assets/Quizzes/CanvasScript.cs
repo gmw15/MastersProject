@@ -14,7 +14,6 @@ public class CanvasScript : MonoBehaviour {
     //public GameObject answer1TF;
     public Text answer1TF;
     public Text result;
-
     // Use this for initialization
     void Start () {
 		menu.SetActive(false);
@@ -41,7 +40,7 @@ public class CanvasScript : MonoBehaviour {
 	void OnGUI(){
 		if(isShowing==true){
 			menu.SetActive(true);
-		}
+        }
 		else{
 			menu.SetActive(false);
 		}

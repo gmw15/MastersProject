@@ -10,6 +10,8 @@ public class QuizManagerScript : MonoBehaviour {
     public Question[] questions;
     private static List<Question> unansweredQuestions;
 
+    //public GameObject<CanvasScript> quiz2;
+
     private Question currentQuestion;
 
     [SerializeField]
@@ -30,6 +32,8 @@ public class QuizManagerScript : MonoBehaviour {
     private int countCorrect;
 
     public GameObject menuQuizThisClass;
+
+    public TriggerWidget removeWidget;
 
     // Use this for initialization
     void Start () {
@@ -70,10 +74,18 @@ public class QuizManagerScript : MonoBehaviour {
         if (unansweredQuestions == null || unansweredQuestions.Count == 0)
         {
             Debug.Log("Empty Array");
+            //Application.LoadLevel("Login2");
+            //targetGameObject.GetComponent<FirstClass>().lives--;
+            //gameObject.GetComponent<TriggerWidget>().menuQuiz2.SetActive(false);
+            removeWidget.menuQuiz2.SetActive(false);
             //unansweredQuestions = questions.ToList<Question>();
         }
-        
-        SetCurrentQuestion();
+
+        else
+        {
+            SetCurrentQuestion();
+        }
+
     }
 
     public void UserSelectsTrue()
