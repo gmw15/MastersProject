@@ -109,10 +109,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         void Chase()
         {
             agent.speed = chaseSpeed;
-            agent.SetDestination(target.transform.position);
+            //stop ai pushing player off the map
+            agent.SetDestination(target.transform.position+(new Vector3(0,0,1)));
             character.Move(agent.desiredVelocity, false, false);
         }
 
+        //inventigate position when player goes into certain distance of ai
         void Investigate()
         {
             timer += Time.deltaTime;
@@ -121,6 +123,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             Debug.DrawRay(transform.position + Vector3.up * heightMultiplier, (transform.forward + transform.right).normalized * sightDist, Color.green);
             Debug.DrawRay(transform.position + Vector3.up * heightMultiplier, (transform.forward - transform.right).normalized * sightDist, Color.green);
 
+            //each raycast is for particular position, middle-left-right
             if (Physics.Raycast(transform.position + Vector3.up * heightMultiplier, transform.forward, out hit, sightDist))
             {
                 if (hit.collider.gameObject.tag == "Player")
