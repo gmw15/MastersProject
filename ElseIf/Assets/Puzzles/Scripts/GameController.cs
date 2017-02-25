@@ -115,7 +115,7 @@ public class GameController : MonoBehaviour {
         //IF WE GUESS CORRECTLY
 
         //HOW TO CHECK DIFFERENT PHOTOS ON TOP OF EACH OTHER!!! VP
-        if (firstGuessPuzzle == "int" && secondGuessPuzzle == "number" || firstGuessPuzzle == "number" && secondGuessPuzzle == "int")
+        if (firstGuessPuzzle == "Integer" && secondGuessPuzzle == "IntegerNum" || firstGuessPuzzle == "IntegerNum" && secondGuessPuzzle == "Integer")
         {
             //disable buttons once guess is correct
             yield return new WaitForSeconds(.5f);
@@ -131,7 +131,7 @@ public class GameController : MonoBehaviour {
             CheckIfTheGameIsFinished();
         }
 
-        if (firstGuessPuzzle == "string" && secondGuessPuzzle == "name" || firstGuessPuzzle == "name" && secondGuessPuzzle == "string")
+        if (firstGuessPuzzle == "String" && secondGuessPuzzle == "StringNum" || firstGuessPuzzle == "StringNum" && secondGuessPuzzle == "String")
         {
             //disable buttons once guess is correct
             yield return new WaitForSeconds(.5f);
@@ -147,7 +147,7 @@ public class GameController : MonoBehaviour {
             CheckIfTheGameIsFinished();
         }
 
-        if (firstGuessPuzzle == "decimal" && secondGuessPuzzle == "double" || firstGuessPuzzle == "double" && secondGuessPuzzle == "decimal")
+        if (firstGuessPuzzle == "Double" && secondGuessPuzzle == "DoubleNum" || firstGuessPuzzle == "DoubleNum" && secondGuessPuzzle == "Double")
         {
             //disable buttons once guess is correct
             yield return new WaitForSeconds(.5f);
@@ -163,7 +163,7 @@ public class GameController : MonoBehaviour {
             CheckIfTheGameIsFinished();
         }
 
-        if (firstGuessPuzzle == "boolean" && secondGuessPuzzle == "true" || firstGuessPuzzle == "true" && secondGuessPuzzle == "boolean")
+        if (firstGuessPuzzle == "Boolean" && secondGuessPuzzle == "BooleanTrue" || firstGuessPuzzle == "BooleanTrue" && secondGuessPuzzle == "Boolean")
         {
             //disable buttons once guess is correct
             yield return new WaitForSeconds(.5f);
