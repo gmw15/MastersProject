@@ -8,6 +8,9 @@ TagManager:
   - Waypoint
   - PuzzleButton
   - Match
+  - Match2
+  - Match3
+  - Match4
   layers:
   - Default
   - TransparentFX
