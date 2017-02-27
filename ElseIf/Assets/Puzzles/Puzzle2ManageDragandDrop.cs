@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Puzzle2ManageDragandDrop : MonoBehaviour
 {
-    Vector3 initialPosition = new Vector3(470,220,0);
-    Vector3 initialPosition2 = new Vector3(470, 180, 0);
-    Vector3 initialPosition3 = new Vector3(470, 140, 0);
-    Vector3 initialPosition4 = new Vector3(470, 100, 0);
+
+    Vector3 initialPosition = new Vector3(470,250,0);
+    Vector3 initialPosition2 = new Vector3(470, 190, 0);
+    Vector3 initialPosition3 = new Vector3(470, 130, 0);
+    Vector3 initialPosition4 = new Vector3(470, 70, 0);
+    Vector3 initialPosition5 = new Vector3(470, 20, 0);
+
     int correctCount;
     int wrongCount;
     //private var spawnPos : Vector3;
@@ -53,11 +56,17 @@ public class Puzzle2ManageDragandDrop : MonoBehaviour
         GameObject.Find("Image4").transform.position = Input.mousePosition;
         //print("we are dragging the mouse");
     }
+    public void Drag5()
+    {
+        //The image position will become the mouse position
+        GameObject.Find("Image5").transform.position = Input.mousePosition;
+        //print("we are dragging the mouse");
+    }
     public void Drop()
     {
         //The image position will snap to the position of the placeholder
         //loop through the placeholders
-        for (int i = 1; i <= 4; i++)
+        for (int i = 1; i <= 5; i++)
         {
             GameObject ph1 = GameObject.Find("Placeholder" + i); //placeholder 1-2-3
             float distance = Vector3.Distance(GameObject.Find("Image").transform.position, ph1.transform.position);
@@ -85,7 +94,7 @@ public class Puzzle2ManageDragandDrop : MonoBehaviour
     {
         //The image position will snap to the position of the placeholder
         //loop through the placeholders
-        for (int i = 1; i <= 4; i++)
+        for (int i = 1; i <= 5; i++)
         {
             GameObject ph1 = GameObject.Find("Placeholder" + i); //placeholder 1-2-3
             float distance = Vector3.Distance(GameObject.Find("Image2").transform.position, ph1.transform.position);
@@ -114,7 +123,7 @@ public class Puzzle2ManageDragandDrop : MonoBehaviour
     {
         //The image position will snap to the position of the placeholder
         //loop through the placeholders
-        for (int i = 1; i <= 4; i++)
+        for (int i = 1; i <= 5; i++)
         {
             GameObject ph1 = GameObject.Find("Placeholder" + i); //placeholder 1-2-3
             float distance = Vector3.Distance(GameObject.Find("Image3").transform.position, ph1.transform.position);
@@ -143,7 +152,7 @@ public class Puzzle2ManageDragandDrop : MonoBehaviour
     {
         //The image position will snap to the position of the placeholder
         //loop through the placeholders
-        for (int i = 1; i <= 4; i++)
+        for (int i = 1; i <= 5; i++)
         {
             GameObject ph1 = GameObject.Find("Placeholder" + i); //placeholder 1-2-3
             float distance = Vector3.Distance(GameObject.Find("Image4").transform.position, ph1.transform.position);
@@ -167,24 +176,60 @@ public class Puzzle2ManageDragandDrop : MonoBehaviour
             }
         }
     }
+    public void Drop5()
+    {
+        //The image position will snap to the position of the placeholder
+        //loop through the placeholders
+        for (int i = 1; i <= 5; i++)
+        {
+            GameObject ph1 = GameObject.Find("Placeholder" + i); //placeholder 1-2-3
+            float distance = Vector3.Distance(GameObject.Find("Image5").transform.position, ph1.transform.position);
+            //print("distance + distance");
+
+            if (distance < 50)
+            {
+                if (ph1.tag == "Match5")
+                {
+                    GameObject.Find("Image5").transform.position = ph1.transform.position;
+                    print("Correct Code");
+                    correctCount++;
+                    CheckPuzzleComplete();
+                }
+                else
+                {
+                    GameObject.Find("Image5").transform.position = initialPosition5;
+                    print("INCORRECT CODE");
+                    wrongCount++;
+                }
+            }
+        }
+    }
     void CheckPuzzleComplete()
     {
         int overallCount = correctCount + wrongCount;
-        if(correctCount == 4)
+        if (correctCount == 5)
         {
-            print("PUZZLE COMPLETED IN "+ overallCount + " GUESSES");
+            print("PUZZLE COMPLETED IN " + overallCount + " GUESSES");
         }
-        else if (correctCount == 3)
+        else if(correctCount == 4)
         {
             print("1 MORE TO GO");
         }
-        else if (correctCount == 2)
+        else if (correctCount == 3)
         {
             print("2 MORE TO GO");
         }
-        else if (correctCount == 1)
+        else if (correctCount == 2)
         {
             print("3 MORE TO GO");
+        }
+        else if (correctCount == 1)
+        {
+            print("4 MORE TO GO");
+        }
+        else
+        {
+            print("ERROR");
         }
     }
 }
