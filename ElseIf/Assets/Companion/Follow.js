@@ -15,8 +15,6 @@ function Awake()
 function Start()
 {
     target = GameObject.FindWithTag("FPSController").transform; //target the player
-
-
 }
 
 
@@ -27,6 +25,7 @@ function Update () {
 
 
     //move towards the player
-    myTransform.position += myTransform.forward * moveSpeed * Time.deltaTime;
+    //myTransform.position = myTransform.position+(new Vector3(1,1,1));
+    myTransform.position+= myTransform.forward * moveSpeed * Time.deltaTime;
 
 }
