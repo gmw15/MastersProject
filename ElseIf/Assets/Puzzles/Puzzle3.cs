@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class Puzzle3 : MonoBehaviour {
 
     //Dropdowns
-    List<string> option1 = new List<string>() { "1234572", "hello", "x123fgs" };
+    List<string> option1 = new List<string>() { "1234572", "qwnch45", "x123fgs" };
     public Dropdown dropdown1;
 
-    List<string> option2 = new List<string>() { "1234572", "bye", "set alarm" };
+    List<string> option2 = new List<string>() { "1234572", "qwnch45", "x123fgs" };
     public Dropdown dropdown2;
 
-    List<string> option3 = new List<string>() { "OpenDoor();", "CloseDoor();", "SetAlarm();" };
+    List<string> option3 = new List<string>() { "OpenDoor();", "Open Door();", "OpenDoor;" };
     public Dropdown dropdown3;
 
-    List<string> option4 = new List<string>() { "RejectNoAlarm();", "SetAlarm();", "Mystery();" };
+    List<string> option4 = new List<string>() { "RejectNoAlarm();", "Reject No Alarm;", "RejectNoAlarm;" };
     public Dropdown dropdown4;
 
     //Text
